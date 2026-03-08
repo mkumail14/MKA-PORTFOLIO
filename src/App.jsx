@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 // Public Components
 import Navbar from './components/layout/Navbar';
@@ -33,9 +33,24 @@ const PublicPortfolio = () => (
   </div>
 );
 
+const TitleUpdater = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    if (location.pathname.startsWith('/admin')) {
+      document.title = "MKA Portfolio-Admin";
+    } else {
+      document.title = "MKA Portfolio";
+    }
+  }, [location]);
+
+  return null;
+};
+
 function App() {
   return (
     <Router>
+      <TitleUpdater />
       <Routes>
         {/* Public Route */}
         <Route path="/" element={<PublicPortfolio />} />

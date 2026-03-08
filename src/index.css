@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --bg-primary: #050505;
-  --bg-secondary: #0f0f11;
-  --bg-tertiary: #1a1a1e;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
   
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
   
-  --accent-primary: #3b82f6;
-  --accent-secondary: #8b5cf6;
-  --accent-tertiary: #ec4899;
+  --accent-primary: #f1f5f9;
+  --accent-secondary: #cbd5e1;
+  --accent-tertiary: #94a3b8;
   
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
   
   --gradient-glow: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
 }
@@ -94,10 +94,11 @@ img {
 
 .btn-primary {
   background: var(--gradient-glow);
-  color: white;
+  color: #0f172a; /* Dark text on silver gradient */
   border: none;
   position: relative;
   z-index: 1;
+  font-weight: 600;
 }
 
 .btn-primary::before {
@@ -123,7 +124,7 @@ img {
 
 .btn-secondary:hover {
   background: var(--glass-bg);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .section-padding {
@@ -151,7 +152,7 @@ img {
   left: -10%;
   width: 40vw;
   height: 40vw;
-  background: rgba(59, 130, 246, 0.25);
+  background: rgba(241, 245, 249, 0.08); /* Very faint silver */
 }
 
 .blob-2 {
@@ -159,7 +160,7 @@ img {
   right: -10%;
   width: 30vw;
   height: 30vw;
-  background: rgba(139, 92, 246, 0.25);
+  background: rgba(148, 163, 184, 0.06); /* Faint slate */
   animation-delay: -5s;
 }
 

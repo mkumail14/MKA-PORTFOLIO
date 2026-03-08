@@ -91,7 +91,7 @@ const ManageCertifications = () => {
         </div>
         
         <form onSubmit={handleSubmit} className="crud-form">
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>Certification Name</label>
               <input type="text" name="title" value={formData.title} onChange={handleInputChange} required />
@@ -102,7 +102,7 @@ const ManageCertifications = () => {
             </div>
           </div>
 
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>Date Earned / Expiration</label>
               <input type="text" name="date" value={formData.date} onChange={handleInputChange} placeholder="e.g. 2024 or Dec 2023 - Present" required />

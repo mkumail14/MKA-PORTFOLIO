@@ -91,7 +91,7 @@ const ManageProjects = () => {
       <div className="glass p-6 mb-8 rounded-xl">
         <h3 className="text-xl mb-4 font-bold">{isEditing ? 'Edit Project' : 'Add New Project'}</h3>
         <form onSubmit={handleSubmit} className="crud-form">
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>Title</label>
               <input type="text" name="title" value={formData.title} onChange={handleInputChange} required />
@@ -107,7 +107,7 @@ const ManageProjects = () => {
             <textarea name="description" value={formData.description} onChange={handleInputChange} rows="3" required />
           </div>
 
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>GitHub URL</label>
               <input type="url" name="githubUrl" value={formData.githubUrl} onChange={handleInputChange} />

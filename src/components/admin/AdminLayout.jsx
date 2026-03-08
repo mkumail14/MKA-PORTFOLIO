@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { LogOut, LayoutDashboard, Briefcase, GraduationCap, Home, User, Award, FileText } from 'lucide-react';
+import { LogOut, LayoutDashboard, Briefcase, GraduationCap, Home, User, Award, FileText, Menu, X } from 'lucide-react';
 import { auth } from '../../firebase/config';
 import { signOut } from 'firebase/auth';
 import ManageProjects from './ManageProjects';
@@ -14,6 +14,10 @@ import './AdminLayout.css';
 const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   const handleLogout = async () => {
     try {
@@ -37,10 +41,16 @@ const AdminLayout = () => {
 
   return (
     <div className="admin-container">
+      {/* Mobile Overlay */}
+      {isSidebarOpen && <div className="admin-sidebar-overlay" onClick={closeSidebar}></div>}
+
       {/* Sidebar */}
-      <aside className="admin-sidebar glass">
-        <div className="sidebar-header">
+      <aside className={`admin-sidebar glass ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="sidebar-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h2 className="text-gradient">MKA.dev Admin</h2>
+          <button className="mobile-close-btn" onClick={closeSidebar} aria-label="Close menu">
+            <X size={24} />
+          </button>
         </div>
 
         <nav className="sidebar-nav">
@@ -50,6 +60,7 @@ const AdminLayout = () => {
                 <Link 
                   to={item.path} 
                   className={`sidebar-link ${location.pathname === item.path ? 'active' : ''}`}
+                  onClick={closeSidebar}
                 >
                   {item.icon}
                   <span>{item.label}</span>
@@ -74,9 +85,14 @@ const AdminLayout = () => {
       {/* Main Content Area */}
       <main className="admin-main">
         <header className="admin-header glass">
-          <h1 className="admin-page-title">
-            {navItems.find(item => item.path === location.pathname)?.label || 'Dashboard'}
-          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <button className="mobile-menu-btn" onClick={toggleSidebar} aria-label="Open menu">
+              <Menu size={24} />
+            </button>
+            <h1 className="admin-page-title">
+              {navItems.find(item => item.path === location.pathname)?.label || 'Dashboard'}
+            </h1>
+          </div>
           <div className="admin-user-info">
             <span className="user-email">{auth?.currentUser?.email || 'Admin'}</span>
             <div className="user-avatar">A</div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer className="footer">
       <div className="container">
@@ -36,7 +38,7 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>
-            Designed & Built with <Heart size={14} className="heart-icon" /> by MKA
+            Designed & Built with <Heart size={14} className="heart-icon" /> by <span onClick={() => navigate('/admin/login')} style={{ cursor: 'default' }}>MKA</span>
           </p>
           <p className="copyright">
             &copy; {new Date().getFullYear()} All rights reserved.

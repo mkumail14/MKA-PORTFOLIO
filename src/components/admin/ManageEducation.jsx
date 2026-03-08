@@ -88,7 +88,7 @@ const ManageEducation = () => {
       <div className="glass p-6 mb-8 rounded-xl">
         <h3 className="text-xl mb-4 font-bold">{isEditing ? 'Edit Education Entry' : 'Add New Experience'}</h3>
         <form onSubmit={handleSubmit} className="crud-form">
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>Degree / Title</label>
               <input type="text" name="degree" value={formData.degree} onChange={handleInputChange} required />
@@ -99,7 +99,7 @@ const ManageEducation = () => {
             </div>
           </div>
 
-          <div className="form-row" style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="admin-form-row">
             <div className="form-group-login" style={{ flex: 1 }}>
               <label>Year / Duration</label>
               <input type="text" name="year" value={formData.year} onChange={handleInputChange} placeholder="e.g. 2019 - 2023" required />
